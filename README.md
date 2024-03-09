@@ -22,13 +22,13 @@ This Expense Tracker App is designed to Track all your day to day expenses and s
 
 ## Screenshots
 <p align="center">
-  <img src="/screenshots/screenshot1.png.jpeg" alt="Home Screen" width="150">
-  <img src="/screenshots/screenshot2.png.jpeg" alt="Question Screen" width="150">
-  <img src="/screenshots/screenshot3.png.jpeg" alt="Result Screen" width="150">
+  <img src="/screenshots/screenshot1.jpeg" alt="View Expense Screen" width="150">
+  <img src="/screenshots/screenshot2.jpeg" alt="Add Expense Screen" width="150">
+
 </p>
 
 <p align="center">
-  <em>Home Screen</em> | <em>Question Screen</em> | <em>Result Screen</em>
+  <em>View Expense Screen</em> | <em>Add Expense Screen</em> 
 </p>
 
 
