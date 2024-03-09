@@ -42,7 +42,7 @@ To Download The Apk:
 To Clone The Repository on Your Machine:
 
   ```bash
-   git clone https://github.com/Jangle-Parth/Expense-Tracker.git
+   https://github.com/Jangle-Parth/Expense-Tracker.git
    ```
 
 ## Usage
