@@ -73,6 +73,7 @@ class _NewExpenseState extends State<NewExpense> {
       padding: const EdgeInsets.fromLTRB(16, 48, 16, 16),
       child: Column(
         children: [
+          const Text("ADD EXPENSE DETAILS"),
           TextField(
             controller: _titleController,
             maxLength: 50,

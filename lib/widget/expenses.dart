@@ -13,29 +13,29 @@ class Expenses extends StatefulWidget {
 }
 
 class _ExpensesState extends State<Expenses> {
-  final List<Expense> _registeredExpenses = [
-    Expense(
-      title: 'Flutter Course',
-      amount: 20,
-      date: DateTime.now(),
-      category: Category.work,
-    ),
-    Expense(
-      title: 'Node Js',
-      amount: 20,
-      date: DateTime.now(),
-      category: Category.work,
-    ),
-  ];
+  final List<Expense> _registeredExpenses = [];
 
+  // void _openAddExpenseOverLay() {
+  //   showModalBottomSheet(
+  //     isScrollControlled: true,
+  //     context: context,
+  //     builder: (ctx) => NewExpense(
+  //       onAddExpense: _addExpense,
+  //     ),
+  //   );
+  // }
   void _openAddExpenseOverLay() {
     showModalBottomSheet(
-      isScrollControlled: true,
-      context: context,
-      builder: (ctx) => NewExpense(
-        onAddExpense: _addExpense,
-      ),
-    );
+        isScrollControlled: true,
+        context: context,
+        builder: (ctx) => SingleChildScrollView(
+              child: Container(
+                padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).viewInsets.bottom,
+                ),
+                child: NewExpense(onAddExpense: _addExpense),
+              ),
+            ));
   }
 
   void _addExpense(Expense expense) {
