@@ -16,27 +16,15 @@ class Expenses extends StatefulWidget {
 class _ExpensesState extends State<Expenses> {
   final List<Expense> _registeredExpenses = [];
 
-  // void _openAddExpenseOverLay() {
-  //   showModalBottomSheet(
-  //     isScrollControlled: true,
-  //     context: context,
-  //     builder: (ctx) => NewExpense(
-  //       onAddExpense: _addExpense,
-  //     ),
-  //   );
-  // }
   void _openAddExpenseOverLay() {
     showModalBottomSheet(
-        isScrollControlled: true,
-        context: context,
-        builder: (ctx) => SingleChildScrollView(
-              child: Container(
-                padding: EdgeInsets.only(
-                  bottom: MediaQuery.of(context).viewInsets.bottom,
-                ),
-                child: NewExpense(onAddExpense: _addExpense),
-              ),
-            ));
+      useSafeArea: true,
+      isScrollControlled: true,
+      context: context,
+      builder: (ctx) => NewExpense(
+        onAddExpense: _addExpense,
+      ),
+    );
   }
 
   void _addExpense(Expense expense) {
@@ -70,6 +58,8 @@ class _ExpensesState extends State<Expenses> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
     Widget mainContent = const Center(child: Text("No Expense Found"));
 
     if (_registeredExpenses.isNotEmpty) {
@@ -79,19 +69,25 @@ class _ExpensesState extends State<Expenses> {
       );
     }
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Expense Tracker"),
-        actions: [
-          IconButton(
-              onPressed: _openAddExpenseOverLay, icon: const Icon(Icons.add))
-        ],
-      ),
-      body: Column(
-        children: [
-          Chart(expenses: _registeredExpenses),
-          Expanded(child: mainContent),
-        ],
-      ),
-    );
+        appBar: AppBar(
+          title: const Text("Expense Tracker"),
+          actions: [
+            IconButton(
+                onPressed: _openAddExpenseOverLay, icon: const Icon(Icons.add))
+          ],
+        ),
+        body: width < 600
+            ? Column(
+                children: [
+                  Chart(expenses: _registeredExpenses),
+                  Expanded(child: mainContent),
+                ],
+              )
+            : Row(
+                children: [
+                  Expanded(child: Chart(expenses: _registeredExpenses)),
+                  Expanded(child: mainContent),
+                ],
+              ));
   }
 }
